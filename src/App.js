@@ -1,18 +1,27 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import quotes from './quotes'
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state={quote: "Click the button for a quote, human!"};
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    this.setState({
+      quote: quotes[Math.floor(Math.random() * quotes.length)]
+    })
+  }
   render() {
     return (
       <div className="App">
         <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+          <h1>{this.state.quote}</h1>
+          <a href="#" className="button" onClick={this.handleClick}>Click To Generate Random Quote</a>
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
       </div>
     );
   }
