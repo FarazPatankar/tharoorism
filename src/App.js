@@ -17,7 +17,8 @@ class App extends Component {
     }
 
     this.setState({
-      quote: quotes[quoteNumber]
+      quote: quotes[quoteNumber],
+      lastQuote: quoteNumber
     })
   }
 
